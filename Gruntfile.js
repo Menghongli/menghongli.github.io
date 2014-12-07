@@ -260,7 +260,7 @@ module.exports = function (grunt) {
     buildcontrol: {
       dist: {
         options: {
-          remote: '../',
+          remote: 'git@github.com:Menghongli/menghongli.github.io.git',
           branch: 'master',
           commit: true,
           push: true
