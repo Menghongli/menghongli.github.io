@@ -4,7 +4,7 @@
 # 3. config.yml
 
 name: blog
-description: 
+description:
 author:
   name: Menghong Li
   email: lp_meng23@live.cn
@@ -24,3 +24,9 @@ markdown: rdiscount
 #   extensions: []
 
 pygments: true
+highlighter: pygments
+
+permalink: /:title
+
+url: http://menghong.me
+author_info: <a href="http://menghong.me/">Leo</a>
