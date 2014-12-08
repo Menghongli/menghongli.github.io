@@ -188,7 +188,49 @@ module.exports = function (grunt) {
       }
     },
     // Usemin adds files to concat
-    concat: {},
+    concat: {
+      vendor: {
+        dest: '<%= yeoman.app %>/js/vendor.js',
+        src: [
+          // Underscore related
+          '<%= yeoman.bower %>/lodash/dist/lodash.compat.js',
+          '<%= yeoman.bower %>/underscore.string/lib/underscore.string.js',
+          '<%= yeoman.bower %>/moment/moment.js',
+          '<%= yeoman.bower %>/moment-timezone/builds/moment-timezone-with-data.js',
+
+          // Bootstrap. Needs to be in this order otherwise it fails.
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-transition.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-affix.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-alert.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-button.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-carousel.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-collapse.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-dropdown.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-modal.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-scrollspy.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-tab.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-tooltip.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-popover.js',
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-typeahead.js',
+        ]
+      },
+
+      application: {
+        dest: '<%= yeoman.app %>/js/application.js',
+        src: [
+          '<%= yeoman.app %>/js/app.js',
+          '<%= yeoman.app %>/js/modules/**/*.js',
+          '<%= yeoman.app %>/js/services/*.js',
+          '<%= yeoman.app %>/js/directives/*.js',
+          '<%= yeoman.app %>/js/filters/*.js'
+        ]
+      }
+    },
+    cdnify: {
+      dist: {
+        html: ['<%= yeoman.dist %>/*.html']
+      }
+    },
     // Usemin adds files to uglify
     uglify: {},
     // Usemin adds files to cssmin
@@ -312,6 +354,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'concat',
       'clean:server',
       'concurrent:server',
       'connect:livereload',
@@ -343,6 +386,7 @@ module.exports = function (grunt) {
     'clean',
     // Jekyll cleans files from the target directory, so must run first
     'jekyll:dist',
+    'cdnify:dist',
     'concurrent:dist',
     'useminPrepare',
     'concat',

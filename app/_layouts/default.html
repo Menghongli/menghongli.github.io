@@ -16,7 +16,7 @@
 
     </head>
     <body>
-    {% include header.html %}
+        {% include header.html %}
 
         <div class="site">
           <div class="header">
@@ -42,8 +42,19 @@
           </div>
         </div>
 
-    <!-- build:js(app) /js/scripts.js -->
-    <script src="/js/main.js"></script>
+    <!-- cdnify -->
+    <script src="/_bower_components/jquery/dist/jquery.js"></script>
+    <script src="/_bower_components/angular/angular.js"></script>
+    <script src="/_bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/_bower_components/angular-route/angular-route.js"></script>
+    <script src="/_bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/_bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endcdnify -->
+
+    <!-- build:js(app) /js/application.js -->
+    <script src="/js/vendor.js"></script>
+    <!-- <script src="/js/application.js"></script> -->
     <!-- endbuild -->
+
     </body>
 </html>
