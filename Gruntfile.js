@@ -109,7 +109,7 @@ module.exports = function (grunt) {
         debugInfo: false,
         lineNumbers: false,
         loadPath: require('node-bourbon').includePaths.concat([
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/stylesheets'
+          '<%= yeoman.bower %>/bootstrap-sass-official/assets/stylesheets'
         ])
       },
       dist: {
@@ -199,19 +199,7 @@ module.exports = function (grunt) {
           '<%= yeoman.bower %>/moment-timezone/builds/moment-timezone-with-data.js',
 
           // Bootstrap. Needs to be in this order otherwise it fails.
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-transition.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-affix.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-alert.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-button.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-carousel.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-collapse.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-dropdown.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-modal.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-scrollspy.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-tab.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-tooltip.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-popover.js',
-          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/javascripts/bootstrap-typeahead.js',
+          '<%= yeoman.bower %>/bootstrap-sass-official/assets/javascripts/bootstrap.js',
         ]
       },
 
