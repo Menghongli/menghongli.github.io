@@ -378,7 +378,7 @@ module.exports = function (grunt) {
     'clean:server',
     // 'jekyll:check',
     'sass:server',
-    'jshint:all',
+    // 'jshint:all',
     // 'csslint:check'
   ]);
 
@@ -386,7 +386,6 @@ module.exports = function (grunt) {
     'clean',
     // Jekyll cleans files from the target directory, so must run first
     'jekyll:dist',
-    'cdnify:dist',
     'concurrent:dist',
     'useminPrepare',
     'concat',
@@ -394,6 +393,7 @@ module.exports = function (grunt) {
     'uglify',
     'imagemin',
     'svgmin',
+    'cdnify:dist',
     'filerev',
     'usemin',
     'htmlmin'
