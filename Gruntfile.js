@@ -18,7 +18,8 @@ module.exports = function (grunt) {
     // Configurable paths
     yeoman: {
       app: 'app',
-      dist: 'dist'
+      dist: 'dist',
+      bower: 'app/_bower_components'
     },
     watch: {
       sass: {
@@ -107,7 +108,9 @@ module.exports = function (grunt) {
         bundleExec: true,
         debugInfo: false,
         lineNumbers: false,
-        loadPath: 'app/_bower_components'
+        loadPath: require('node-bourbon').includePaths.concat([
+          '<%= yeoman.bower %>/bootstrap-sass/vendor/assets/stylesheets'
+        ])
       },
       dist: {
         files: [{
@@ -333,7 +336,7 @@ module.exports = function (grunt) {
     // 'jekyll:check',
     'sass:server',
     'jshint:all',
-    'csslint:check'
+    // 'csslint:check'
   ]);
 
   grunt.registerTask('build', [
