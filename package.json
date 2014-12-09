@@ -3,7 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "description": "Yeoman workflow for blog",
-  "dependencies": {},
+  "dependencies": {
+    "unsplash-crawl": "0.0.1"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-build-control": "~0.1.2",
@@ -18,7 +20,7 @@
     "grunt-contrib-imagemin": "~0.5.0",
     "grunt-contrib-jshint": "~0.8.0",
     "es5-shim": "~3.1.0",
-    "grunt-contrib-sass": "~0.6.0",
+    "grunt-sass": "^0.16.1",
     "grunt-contrib-uglify": "~0.3.0",
     "grunt-contrib-watch": "git://github.com/gruntjs/grunt-contrib-watch.git#b884948805940c663b1cbb91a3c28ba8afdebf78",
     "grunt-filerev": "~0.2.0",

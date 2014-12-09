@@ -30,14 +30,3 @@
   bootstrapApplication();
   angular.module('Application', app_deps);
 })();
-
-//= require_directory .
-
-//= require_directory .
-
-(function() {
-
-  angular.module('Unsplash.directives', []);
-
-})();
-

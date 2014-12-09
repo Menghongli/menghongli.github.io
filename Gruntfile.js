@@ -19,12 +19,13 @@ module.exports = function (grunt) {
     yeoman: {
       app: 'app',
       dist: 'dist',
-      bower: 'app/_bower_components'
+      bower: 'app/_bower_components',
+      build: '.tmp'
     },
     watch: {
       sass: {
         files: ['<%= yeoman.app %>/_scss/**/*.{scss,sass}'],
-        tasks: ['sass:server']
+        tasks: ['sass']
       },
       autoprefixer: {
         files: ['<%= yeoman.app %>/css/**/*.css'],
@@ -105,33 +106,18 @@ module.exports = function (grunt) {
     },
     sass: {
       options: {
-        bundleExec: true,
-        debugInfo: false,
-        lineNumbers: false,
-        loadPath: require('node-bourbon').includePaths.concat([
-          '<%= yeoman.bower %>/bootstrap-sass-official/assets/stylesheets'
+        sourceComments: true,
+        // imagePath:      '/assets/images',
+        includePaths: require('node-bourbon').includePaths.concat([
+          '<%= yeoman.app %>/_scss',
+          '<%= yeoman.bower %>/bootstrap-sass-official/assets/stylesheets',
+          '<%= yeoman.bower %>/font-awesome/scss'
         ])
       },
       dist: {
         files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/_scss',
-          src: '**/*.{scss,sass}',
-          dest: '.tmp/css',
-          ext: '.css'
-        }]
-      },
-      server: {
-        options: {
-          debugInfo: true,
-          lineNumbers: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/_scss',
-          src: '**/*.{scss,sass}',
-          dest: '.tmp/css',
-          ext: '.css'
+          '<%= yeoman.build %>/css/application.css':
+          '<%= yeoman.app %>/_scss/application.scss'
         }]
       }
     },
@@ -199,7 +185,7 @@ module.exports = function (grunt) {
           '<%= yeoman.bower %>/moment-timezone/builds/moment-timezone-with-data.js',
 
           // Bootstrap. Needs to be in this order otherwise it fails.
-          '<%= yeoman.bower %>/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+          '<%= yeoman.bower %>/bootstrap-sass-official/assets/javascripts/bootstrap.js'
         ]
       },
 
@@ -325,7 +311,7 @@ module.exports = function (grunt) {
     },
     concurrent: {
       server: [
-        'sass:server',
+        'sass',
         'jekyll:server'
       ],
       dist: [
@@ -365,7 +351,7 @@ module.exports = function (grunt) {
   grunt.registerTask('check', [
     'clean:server',
     // 'jekyll:check',
-    'sass:server',
+    'sass',
     // 'jshint:all',
     // 'csslint:check'
   ]);

@@ -1,0 +1,21 @@
+.leo {
+  padding-left: 45px;
+}
+
+.row-leo {
+  padding-left: 15px;
+  width: 100%;
+}
+
+.left-aside {
+  position: fixed;
+  left: 45px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-color: #555;
+  background-image: url('https://unsplash.it/450/971/?random');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
